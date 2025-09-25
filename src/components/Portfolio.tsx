@@ -8,73 +8,70 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "EcoSmart Platform",
-      category: "web",
-      description: "Plataforma de gestão ambiental com IA para otimização de recursos",
+      title: "NextChat AI",
+      category: "desenvolvimento",
+      description: "Sistema de chat inteligente com IA para suporte ao cliente",
       image: "/api/placeholder/600/400",
-      tech: ["React", "Node.js", "TensorFlow", "MongoDB"],
-      stats: { users: "10k+", rating: 4.9, growth: "+250%" },
+      tech: ["React", "Node.js", "OpenAI", "WebSocket"],
+      status: "Em desenvolvimento - 70%",
       featured: true
     },
     {
       id: 2,
-      title: "FinTech Mobile",
-      category: "mobile",
-      description: "App bancário com blockchain e biometria avançada",
+      title: "SmartDash Analytics",
+      category: "desenvolvimento",
+      description: "Dashboard de analytics em tempo real para empresas",
       image: "/api/placeholder/600/400",
-      tech: ["React Native", "Blockchain", "Biometry", "AWS"],
-      stats: { users: "50k+", rating: 4.8, growth: "+180%" },
+      tech: ["Next.js", "Chart.js", "PostgreSQL", "Redis"],
+      status: "Em desenvolvimento - 45%",
       featured: true
     },
     {
       id: 3,
-      title: "AI Healthcare",
-      category: "ai",
-      description: "Sistema de diagnóstico médico assistido por inteligência artificial",
+      title: "EcoSmart Platform",
+      category: "conceito",
+      description: "Plataforma de gestão ambiental com IA para otimização de recursos",
       image: "/api/placeholder/600/400",
-      tech: ["Python", "TensorFlow", "Computer Vision", "React"],
-      stats: { users: "5k+", rating: 4.9, growth: "+320%" },
+      tech: ["React", "Node.js", "TensorFlow", "MongoDB"],
+      status: "Conceito validado",
       featured: false
     },
     {
       id: 4,
-      title: "Smart Logistics",
-      category: "web",
-      description: "Plataforma de logística inteligente com otimização de rotas",
+      title: "MobileFirst App",
+      category: "desenvolvimento",
+      description: "Aplicativo mobile moderno com design system próprio",
       image: "/api/placeholder/600/400",
-      tech: ["Next.js", "ML Algorithms", "Maps API", "PostgreSQL"],
-      stats: { users: "25k+", rating: 4.7, growth: "+150%" },
+      tech: ["React Native", "Expo", "Supabase", "TypeScript"],
+      status: "Em desenvolvimento - 30%",
       featured: false
     },
     {
       id: 5,
       title: "VR Training Suite",
-      category: "vr",
+      category: "conceito",
       description: "Sistema de treinamento corporativo em realidade virtual",
       image: "/api/placeholder/600/400",
       tech: ["Unity", "C#", "VR SDKs", "Cloud Storage"],
-      stats: { users: "2k+", rating: 4.9, growth: "+400%" },
-      featured: true
+      status: "Conceito em análise",
+      featured: false
     },
     {
       id: 6,
-      title: "IoT Dashboard",
-      category: "iot",
-      description: "Dashboard para monitoramento de dispositivos IoT em tempo real",
+      title: "API Gateway Pro",
+      category: "desenvolvimento",
+      description: "Gateway de APIs com monitoramento avançado e rate limiting",
       image: "/api/placeholder/600/400",
-      tech: ["Vue.js", "MQTT", "Time Series DB", "WebSockets"],
-      stats: { users: "15k+", rating: 4.8, growth: "+200%" },
-      featured: false
+      tech: ["Node.js", "Docker", "Redis", "Prometheus"],
+      status: "Em desenvolvimento - 60%",
+      featured: true
     }
   ];
 
   const filters = [
     { id: "todos", label: "Todos os Projetos" },
-    { id: "web", label: "Web Apps" },
-    { id: "mobile", label: "Mobile" },
-    { id: "ai", label: "Inteligência Artificial" },
-    { id: "vr", label: "Realidade Virtual" },
-    { id: "iot", label: "IoT" }
+    { id: "desenvolvimento", label: "Em Desenvolvimento" },
+    { id: "conceito", label: "Conceitos" }
   ];
 
   const filteredProjects = activeFilter === "todos" 
@@ -124,7 +121,7 @@ const Portfolio = () => {
                 <div className="absolute inset-0 bg-gradient-card"></div>
                 <div className="absolute top-4 left-4">
                   <span className="bg-gradient-gold text-background px-3 py-1 rounded-full text-sm font-bold">
-                    Destaque
+                    {project.status.includes('desenvolvimento') ? 'Em Desenvolvimento' : 'Destaque'}
                   </span>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -153,24 +150,21 @@ const Portfolio = () => {
                     </span>
                   ))}
                 </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 mb-6 p-4 glass-card rounded-lg">
-                  <div className="text-center">
-                    <Users className="h-5 w-5 text-primary mx-auto mb-1" />
-                    <div className="text-sm font-bold text-foreground">{project.stats.users}</div>
-                    <div className="text-xs text-muted-foreground">Usuários</div>
+                
+                {/* Status */}
+                <div className="mb-6 p-4 glass-card rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-muted-foreground">Status:</span>
+                    <span className="text-sm font-bold text-primary">{project.status}</span>
                   </div>
-                  <div className="text-center">
-                    <Star className="h-5 w-5 text-primary mx-auto mb-1" />
-                    <div className="text-sm font-bold text-foreground">{project.stats.rating}</div>
-                    <div className="text-xs text-muted-foreground">Rating</div>
-                  </div>
-                  <div className="text-center">
-                    <TrendingUp className="h-5 w-5 text-primary mx-auto mb-1" />
-                    <div className="text-sm font-bold text-foreground">{project.stats.growth}</div>
-                    <div className="text-xs text-muted-foreground">Crescimento</div>
-                  </div>
+                  {project.status.includes('%') && (
+                    <div className="mt-2 w-full bg-muted rounded-full h-2">
+                      <div 
+                        className="bg-gradient-gold h-2 rounded-full transition-all duration-500"
+                        style={{ width: project.status.match(/(\d+)%/)?.[1] + '%' || '0%' }}
+                      ></div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex gap-3">
@@ -205,12 +199,21 @@ const Portfolio = () => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-display font-bold text-foreground mb-2 group-hover:gradient-text transition-all duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground font-body text-sm mb-4 leading-relaxed">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-display font-bold text-foreground group-hover:gradient-text transition-all duration-300">
+                    {project.title}
+                  </h3>
+                  {project.status.includes('desenvolvimento') && (
+                    <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                  )}
+                </div>
+                <p className="text-muted-foreground font-body text-sm mb-3 leading-relaxed">
                   {project.description}
                 </p>
+                
+                <div className="text-xs text-primary font-medium mb-4">
+                  {project.status}
+                </div>
                 
                 <div className="flex flex-wrap gap-1 mb-4">
                   {project.tech.slice(0, 3).map((tech, techIndex) => (

@@ -77,7 +77,7 @@ export default {
         'dark': 'var(--shadow-dark)',
       },
       fontFamily: {
-        'display': ['Orbitron', 'monospace'],
+        'display': ['Rajdhani', 'sans-serif'],
         'body': ['Inter', 'sans-serif'],
       },
       borderRadius: {
