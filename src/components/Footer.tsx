@@ -69,8 +69,8 @@ const Footer = () => {
               </div>
               
               <p className="text-muted-foreground font-body leading-relaxed">
-                Transformamos ideias em realidade digital através de tecnologias 
-                inovadoras e soluções que definem o futuro.
+                Uma startup que nasceu esta semana com a missão de transformar 
+                ideias em realidade digital através de tecnologias inovadoras.
               </p>
 
               <div className="space-y-3">
@@ -169,8 +169,9 @@ const Footer = () => {
               Fique por Dentro das Novidades
             </h3>
             <p className="text-muted-foreground font-body mb-6 max-w-2xl mx-auto">
-              Receba insights sobre tecnologia, tendências de mercado e novidades 
-              da NextDev diretamente em sua caixa de entrada.
+              Acompanhe nossa jornada desde o primeiro dia! Receba atualizações sobre 
+              nosso crescimento, insights sobre tecnologia e as novidades da NextDev 
+              diretamente em sua caixa de entrada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input

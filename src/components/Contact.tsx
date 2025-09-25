@@ -85,8 +85,9 @@ const Contact = () => {
             Vamos Conversar
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-            Pronto para transformar sua ideia em realidade? Entre em contato conosco 
-            e descubra como podemos impulsionar seu negócio com tecnologia de ponta.
+            Somos uma empresa que nasceu esta semana com grandes sonhos! Entre em contato 
+            conosco e descubra como podemos começar a construir o futuro juntos. Sua ideia 
+            pode ser nosso primeiro grande projeto.
           </p>
         </div>
 
@@ -276,10 +277,11 @@ const Contact = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center glass-card p-12 rounded-2xl">
           <h3 className="text-3xl font-display font-bold gradient-text mb-4">
-            Não Perca Tempo!
+            Vamos Começar Nossa Jornada Juntos!
           </h3>
           <p className="text-lg text-muted-foreground mb-8 font-body">
-            Cada dia de atraso é uma oportunidade perdida. Vamos começar seu projeto hoje mesmo.
+            Somos novos no mercado, mas nossa energia e paixão por tecnologia são infinitas. 
+            Que tal ser nosso próximo parceiro de sucesso?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="xl" className="group">

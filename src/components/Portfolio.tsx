@@ -92,8 +92,9 @@ const Portfolio = () => {
             Nosso Portfolio
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-            Projetos inovadores que demonstram nossa expertise em transformar ideias 
-            em soluções tecnológicas de alto impacto.
+            Projetos conceituais e ideias inovadoras que demonstram nossa capacidade 
+            de criar soluções tecnológicas revolucionárias. Como uma empresa recém-nascida, 
+            apresentamos nossa visão do que é possível construir.
           </p>
         </div>
 
@@ -236,10 +237,10 @@ const Portfolio = () => {
         {/* CTA Section */}
         <div className="text-center glass-card p-12 rounded-2xl">
           <h3 className="text-3xl font-display font-bold gradient-text mb-4">
-            Pronto para Criar Algo Incrível?
+            Pronto para Construir o Futuro?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 font-body">
-            Vamos transformar sua ideia em realidade com tecnologia de ponta
+            Somos uma empresa nova com ideias grandes. Vamos transformar sua visão em realidade
           </p>
           <Button variant="hero" size="xl" className="group">
             Iniciar Projeto

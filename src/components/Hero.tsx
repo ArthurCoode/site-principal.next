@@ -80,16 +80,16 @@ const Hero = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 opacity-0 animate-fade-in animate-delay-1000">
             <div className="glass-card p-6 rounded-xl gold-glow">
-              <div className="text-3xl font-bold gradient-text mb-2">50+</div>
-              <div className="text-muted-foreground">Projetos Entregues</div>
-            </div>
-            <div className="glass-card p-6 rounded-xl gold-glow">
-              <div className="text-3xl font-bold gradient-text mb-2">5+</div>
-              <div className="text-muted-foreground">Anos de Experiência</div>
+              <div className="text-3xl font-bold gradient-text mb-2">Novo</div>
+              <div className="text-muted-foreground">Nascemos esta semana</div>
             </div>
             <div className="glass-card p-6 rounded-xl gold-glow">
               <div className="text-3xl font-bold gradient-text mb-2">100%</div>
-              <div className="text-muted-foreground">Satisfação dos Clientes</div>
+              <div className="text-muted-foreground">Foco no Futuro</div>
+            </div>
+            <div className="glass-card p-6 rounded-xl gold-glow">
+              <div className="text-3xl font-bold gradient-text mb-2">∞</div>
+              <div className="text-muted-foreground">Possibilidades</div>
             </div>
           </div>
         </div>

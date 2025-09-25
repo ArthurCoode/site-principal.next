@@ -46,9 +46,10 @@ const About = () => {
             Quem Somos
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-            A NextDev é uma empresa inovadora especializada em desenvolvimento de aplicações 
-            que antecipam as necessidades do futuro. Combinamos expertise técnica com 
-            visão estratégica para criar soluções que impulsionam o crescimento dos nossos clientes.
+            A NextDev é uma empresa que nasceu esta semana com a missão de revolucionar 
+            o desenvolvimento de aplicações. Somos uma startup focada em criar soluções 
+            tecnológicas inovadoras que antecipam as necessidades do futuro, começando 
+            nossa jornada com energia, paixão e uma visão clara do amanhã.
           </p>
         </div>
 
@@ -78,35 +79,37 @@ const About = () => {
             Nossa Missão
           </h3>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed mb-8">
-            Transformar ideias inovadoras em realidade digital, criando aplicações que não apenas 
-            atendem às necessidades atuais, mas antecipam as demandas futuras do mercado. 
-            Acreditamos que a tecnologia deve ser uma ponte para um futuro melhor.
+            Nascemos com a missão de transformar ideias inovadoras em realidade digital. 
+            Como uma startup recém-criada, trazemos energia fresca e uma perspectiva única 
+            para criar aplicações que não apenas atendem às necessidades atuais, mas antecipam 
+            as demandas futuras do mercado. Acreditamos que cada novo começo é uma oportunidade 
+            de fazer a diferença.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
             <div className="group">
               <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                2019
+                2024
               </div>
               <div className="text-muted-foreground font-medium">Fundação</div>
             </div>
             <div className="group">
               <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                50+
+                ∞
               </div>
-              <div className="text-muted-foreground font-medium">Projetos</div>
+              <div className="text-muted-foreground font-medium">Ideias</div>
             </div>
             <div className="group">
               <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                15+
+                Nova
               </div>
-              <div className="text-muted-foreground font-medium">Clientes</div>
+              <div className="text-muted-foreground font-medium">Empresa</div>
             </div>
             <div className="group">
               <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                100%
+                Futuro
               </div>
-              <div className="text-muted-foreground font-medium">Satisfação</div>
+              <div className="text-muted-foreground font-medium">Visão</div>
             </div>
           </div>
         </div>
