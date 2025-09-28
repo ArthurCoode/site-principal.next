@@ -138,16 +138,6 @@ const Portfolio = () => {
                     </div>
                   )}
                 </div>
-
-                <div className="flex gap-3">
-                  <Button variant="hero" size="sm" className="flex-1 group">
-                    Ver Projeto
-                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button variant="futuristic" size="sm" className="group">
-                    <Github className="h-4 w-4 group-hover:rotate-12 transition-transform" />
-                  </Button>
-                </div>
               </div>
             </div>
           ))}
@@ -198,13 +188,6 @@ const Portfolio = () => {
                       {tech}
                     </span>
                   ))}
-                </div>
-
-                <div className="flex gap-2">
-                  <Button variant="futuristic" size="sm" className="flex-1 group">
-                    Ver Mais
-                    <ExternalLink className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                  </Button>
                 </div>
               </div>
             </div>
