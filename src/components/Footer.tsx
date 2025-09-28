@@ -190,7 +190,7 @@ const Footer = () => {
             
             <div className="flex items-center space-x-6">
 <a 
-  href="/public/Politica-de-Privacidade.pdf" 
+  href="/Politica-de-Privacidade.pdf" 
   download="Privacidade & Termos" 
   className="text-sm text-muted-foreground hover:text-primary transition-colors"
 >
