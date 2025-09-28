@@ -18,21 +18,6 @@ const About = () => {
       title: "Desenvolvimento Ágil",
       description: "Metodologias ágeis que garantem entregas rápidas sem comprometer a qualidade."
     },
-    {
-      icon: Target,
-      title: "Soluções Personalizadas",
-      description: "Cada projeto é único, desenvolvido especificamente para suas necessidades."
-    },
-    {
-      icon: Users,
-      title: "Equipe Especializada",
-      description: "Profissionais experientes com conhecimento em tecnologias emergentes."
-    },
-    {
-      icon: Trophy,
-      title: "Resultados Comprovados",
-      description: "Histórico de sucesso com projetos que transformaram negócios."
-    }
   ];
 
   return (
@@ -45,12 +30,11 @@ const About = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold gradient-text mb-6">
             Quem Somos
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-            A NextDev é uma empresa que nasceu esta semana com a missão de revolucionar 
-            o desenvolvimento de aplicações. Somos uma startup focada em criar soluções 
-            tecnológicas inovadoras que antecipam as necessidades do futuro, começando 
-            nossa jornada com energia, paixão e uma visão clara do amanhã.
-          </p>
+<p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
+  Somos os criadores de um novo futuro. A NextDev conecta pessoas, ideias e tecnologia para transformar conhecimento em impacto real, construindo hoje as soluções que irão moldar o amanhã. 
+  Nascemos com a missão de revolucionar o desenvolvimento de aplicações, trazendo energia, paixão e uma visão clara para antecipar as necessidades do futuro por meio de soluções tecnológicas inovadoras.
+</p>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -78,49 +62,48 @@ const About = () => {
           <h3 className="text-3xl font-display font-bold gradient-text mb-8">
             Nossa Missão
           </h3>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed mb-8">
-            Nascemos com a missão de transformar ideias inovadoras em realidade digital. 
-            Como uma startup recém-criada, trazemos energia fresca e uma perspectiva única 
-            para criar aplicações que não apenas atendem às necessidades atuais, mas antecipam 
-            as demandas futuras do mercado. Acreditamos que cada novo começo é uma oportunidade 
-            de fazer a diferença.
-          </p>
+<p className="text-lg text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed mb-8">
+  Na NextDev, nossa missão é transformar ideias em soluções digitais inovadoras, unindo criatividade, tecnologia e impacto real. Queremos capacitar pessoas e empresas a evoluírem, tornando o futuro mais acessível, conectado e pronto para as oportunidades de amanhã.
+</p>
+
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
-            <div className="group">
-              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                2024
-              </div>
-              <div className="text-muted-foreground font-medium">Fundação</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                ∞
-              </div>
-              <div className="text-muted-foreground font-medium">Ideias</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                Nova
-              </div>
-              <div className="text-muted-foreground font-medium">Empresa</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-                Futuro
-              </div>
-              <div className="text-muted-foreground font-medium">Visão</div>
-            </div>
-          </div>
+<div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+  <div className="group">
+    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+      2025
+    </div>
+    <div className="text-muted-foreground font-medium">O Início da Revolução</div>
+  </div>
+  <div className="group">
+    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+      ∞
+    </div>
+    <div className="text-muted-foreground font-medium">Possibilidades</div>
+  </div>
+  <div className="group">
+    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+      Impacto
+    </div>
+    <div className="text-muted-foreground font-medium">Tecnologia com Propósito</div>
+  </div>
+  <div className="group">
+    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+      Futuro
+    </div>
+    <div className="text-muted-foreground font-medium">Visão Transformadora</div>
+  </div>
+</div>
         </div>
 
         {/* CTA Section */}
-        <div className="text-center">
-          <Button variant="hero" size="xl" className="group">
-            Conheça Nossos Projetos
-            <Target className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-          </Button>
-        </div>
+<div className="text-center">
+  <Button asChild variant="hero" size="xl" className="group">
+    <a href="#portfolio">
+      Conheça Nossos Desenvolvimento
+      <Target className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+    </a>
+  </Button>
+</div> 
       </div>
     </section>
   );

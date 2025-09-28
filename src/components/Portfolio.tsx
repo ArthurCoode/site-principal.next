@@ -8,22 +8,22 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "NextChat AI",
+      title: "Future Forge",
       category: "desenvolvimento",
-      description: "Sistema de chat inteligente com IA para suporte ao cliente",
-      image: "/api/placeholder/600/400",
-      tech: ["React", "Node.js", "OpenAI", "WebSocket"],
-      status: "Em desenvolvimento - 70%",
+      description: "Oferecer ferramentas prontas e escaláveis para desenvolvedores",
+      image: "/src/assets/future-forge.png",
+      tech: ["Next.js", "React", "JavaScript"],
+      status: "Em desenvolvimento - 75%",
       featured: true
     },
     {
       id: 2,
-      title: "SmartDash Analytics",
+      title: "NextChat AI",
       category: "desenvolvimento",
-      description: "Dashboard de analytics em tempo real para empresas",
-      image: "/api/placeholder/600/400",
-      tech: ["Next.js", "Chart.js", "PostgreSQL", "Redis"],
-      status: "Em desenvolvimento - 45%",
+      description: "Sistema de chat inteligente com IA para suporte ao cliente",
+      image: "/src/assets/nextchat-ai.png", // Caminho para a imagem
+      tech: ["React", "Node.js", "OpenAI", "WebSocket"],
+      status: "Em desenvolvimento - 30%",
       featured: true
     },
     {
@@ -31,41 +31,11 @@ const Portfolio = () => {
       title: "EcoSmart Platform",
       category: "conceito",
       description: "Plataforma de gestão ambiental com IA para otimização de recursos",
-      image: "/api/placeholder/600/400",
+      image: "/src/assets/eco-smart.png", // Caminho para a imagem
       tech: ["React", "Node.js", "TensorFlow", "MongoDB"],
       status: "Conceito validado",
       featured: false
     },
-    {
-      id: 4,
-      title: "MobileFirst App",
-      category: "desenvolvimento",
-      description: "Aplicativo mobile moderno com design system próprio",
-      image: "/api/placeholder/600/400",
-      tech: ["React Native", "Expo", "Supabase", "TypeScript"],
-      status: "Em desenvolvimento - 30%",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "VR Training Suite",
-      category: "conceito",
-      description: "Sistema de treinamento corporativo em realidade virtual",
-      image: "/api/placeholder/600/400",
-      tech: ["Unity", "C#", "VR SDKs", "Cloud Storage"],
-      status: "Conceito em análise",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "API Gateway Pro",
-      category: "desenvolvimento",
-      description: "Gateway de APIs com monitoramento avançado e rate limiting",
-      image: "/api/placeholder/600/400",
-      tech: ["Node.js", "Docker", "Redis", "Prometheus"],
-      status: "Em desenvolvimento - 60%",
-      featured: true
-    }
   ];
 
   const filters = [
@@ -118,17 +88,19 @@ const Portfolio = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative h-64 bg-gradient-primary overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-card"></div>
+                {/* Imagem do projeto */}
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-card opacity-80"></div>
                 <div className="absolute top-4 left-4">
                   <span className="bg-gradient-gold text-background px-3 py-1 rounded-full text-sm font-bold">
                     {project.status.includes('desenvolvimento') ? 'Em Desenvolvimento' : 'Destaque'}
                   </span>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl font-display font-bold text-primary/20">
-                    {project.title.split(' ')[0]}
-                  </div>
-                </div>
+                {/* REMOVIDO: Texto grande com nome do projeto atrás da imagem */}
               </div>
               
               <div className="p-8">
@@ -190,12 +162,14 @@ const Portfolio = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative h-48 bg-gradient-primary overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-card"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-4xl font-display font-bold text-primary/20">
-                    {project.title.split(' ')[0]}
-                  </div>
-                </div>
+                {/* Imagem do projeto */}
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-card opacity-80"></div>
+                {/* REMOVIDO: Texto grande com nome do projeto atrás da imagem */}
               </div>
               
               <div className="p-6">
@@ -245,10 +219,14 @@ const Portfolio = () => {
           <p className="text-lg text-muted-foreground mb-8 font-body">
             Somos uma empresa nova com ideias grandes. Vamos transformar sua visão em realidade
           </p>
-          <Button variant="hero" size="xl" className="group">
-            Iniciar Projeto
-            <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </Button>
+
+<Button asChild variant="hero" size="xl" className="group">
+  <a href="#contact">
+    Iniciar Projeto
+    <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+  </a>
+</Button>
+
         </div>
       </div>
     </section>

@@ -5,11 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { 
   Mail, 
   Phone, 
-  MapPin, 
   Send, 
   Clock,
   MessageSquare,
-  CheckCircle,
   Star
 } from "lucide-react";
 import { useState } from "react";
@@ -22,10 +20,32 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus("error");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", { // 🔹 backend completo
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", company: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -39,33 +59,31 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      info: "contato@nextdev.com.br",
+      info: "contact.nextdev@gmail.com",
       description: "Resposta em até 2 horas"
     },
     {
       icon: Phone,
       title: "Telefone",
-      info: "+55 (11) 9999-9999",
+      info: "+55 (77) 99804-1520",
       description: "Seg-Sex, 9h às 18h"
     },
-    {
-      icon: MapPin,
-      title: "Localização",
-      info: "São Paulo, SP",
-      description: "Atendimento presencial ou remoto"
-    }
   ];
 
   const testimonials = [
     {
-      name: "Carlos Silva",
-      company: "TechCorp",
+  name: "",
+  company: "",
+  message: "O time da NextDev foi extremamente proativo e detalhista. Nosso projeto ganhou vida exatamente como imaginávamos!",
+  rating: 5
+},
+    {
+      name: "",
+      company: "",
       message: "A NextDev transformou nossa visão em uma aplicação incrível. Profissionalismo e qualidade excepcionais!",
       rating: 5
     },
     {
-      name: "Ana Santos",
-      company: "Inovação Ltda",
       message: "Equipe altamente qualificada que entregou muito além das nossas expectativas. Recomendamos!",
       rating: 5
     }
@@ -73,12 +91,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-48 h-48 bg-gradient-glow opacity-10 rounded-full floating"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 border border-primary/20 rounded-full pulse-glow animate-delay-300"></div>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-display font-bold gradient-text mb-6">
@@ -86,13 +98,12 @@ const Contact = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
             Somos uma empresa que nasceu esta semana com grandes sonhos! Entre em contato 
-            conosco e descubra como podemos começar a construir o futuro juntos. Sua ideia 
-            pode ser nosso primeiro grande projeto.
+            conosco e descubra como podemos começar a construir o futuro juntos.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Form */}
+          {/* Formulário */}
           <div className="lg:col-span-2">
             <div className="glass-card p-8 rounded-2xl">
               <div className="flex items-center mb-8">
@@ -105,9 +116,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground font-medium">
-                      Nome Completo
-                    </Label>
+                    <Label htmlFor="name">Nome Completo</Label>
                     <Input
                       id="name"
                       name="name"
@@ -115,14 +124,11 @@ const Contact = () => {
                       placeholder="Seu nome"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-card/50 border-primary/20 focus:border-primary transition-colors"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground font-medium">
-                      Email
-                    </Label>
+                    <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
                       name="email"
@@ -130,16 +136,13 @@ const Contact = () => {
                       placeholder="seu@email.com"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-card/50 border-primary/20 focus:border-primary transition-colors"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="company" className="text-foreground font-medium">
-                    Empresa (Opcional)
-                  </Label>
+                  <Label htmlFor="company">Empresa (Opcional)</Label>
                   <Input
                     id="company"
                     name="company"
@@ -147,21 +150,17 @@ const Contact = () => {
                     placeholder="Nome da sua empresa"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="bg-card/50 border-primary/20 focus:border-primary transition-colors"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground font-medium">
-                    Mensagem
-                  </Label>
+                  <Label htmlFor="message">Mensagem</Label>
                   <Textarea
                     id="message"
                     name="message"
                     placeholder="Conte-nos sobre seu projeto..."
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="bg-card/50 border-primary/20 focus:border-primary transition-colors min-h-32"
                     required
                   />
                 </div>
@@ -170,128 +169,69 @@ const Contact = () => {
                   Enviar Mensagem
                   <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
-              </form>
 
-              {/* Features */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-primary/20">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                  <span className="text-sm text-muted-foreground">Resposta rápida</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                  <span className="text-sm text-muted-foreground">Consulta gratuita</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-primary mr-2" />
-                  <span className="text-sm text-muted-foreground">Orçamento sem custo</span>
-                </div>
-              </div>
+                {/* Status do envio */}
+                {status === "success" && (
+                  <p className="text-green-500 text-center mt-4">Mensagem enviada com sucesso!</p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-500 text-center mt-4">Erro ao enviar, tente novamente.</p>
+                )}
+              </form>
             </div>
           </div>
 
-          {/* Contact Info & Testimonials */}
+          {/* Informações de contato e depoimentos */}
           <div className="space-y-8">
-            {/* Contact Information */}
             <div className="glass-card p-8 rounded-2xl">
               <h3 className="text-xl font-display font-bold gradient-text mb-6">
                 Informações de Contato
               </h3>
-              
               <div className="space-y-6">
-                {contactInfo.map((contact, index) => (
-                  <div 
-                    key={contact.title}
-                    className="flex items-start group cursor-pointer"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="flex-shrink-0 mr-4">
-                      <contact.icon className="h-6 w-6 text-primary group-hover:text-primary-glow transition-colors duration-300" />
-                    </div>
+                {contactInfo.map((contact) => (
+                  <div key={contact.title} className="flex items-start">
+                    <contact.icon className="h-6 w-6 text-primary mr-4" />
                     <div>
-                      <h4 className="font-display font-bold text-foreground mb-1">
-                        {contact.title}
-                      </h4>
-                      <p className="text-primary font-medium mb-1">
-                        {contact.info}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {contact.description}
-                      </p>
+                      <h4 className="font-bold">{contact.title}</h4>
+                      <p className="text-primary font-medium">{contact.info}</p>
+                      <p className="text-sm text-muted-foreground">{contact.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
-
               <div className="mt-8 pt-6 border-t border-primary/20">
                 <div className="flex items-center mb-2">
                   <Clock className="h-5 w-5 text-primary mr-2" />
-                  <span className="font-display font-bold text-foreground">Horário de Atendimento</span>
+                  <span className="font-bold">Horário de Atendimento</span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Segunda a Sexta: 9h às 18h<br />
-                  Sábado: 9h às 12h<br />
-                  Emergências: 24/7
+                  Segunda a Sexta: 9h às 18h <br />
+                  Sábado & Domingo: 9h às 12h
                 </p>
               </div>
             </div>
 
-            {/* Testimonials */}
             <div className="glass-card p-8 rounded-2xl">
               <h3 className="text-xl font-display font-bold gradient-text mb-6">
                 O que Nossos Clientes Dizem
               </h3>
-              
               <div className="space-y-6">
-                {testimonials.map((testimonial, index) => (
-                  <div 
-                    key={testimonial.name}
-                    className="group"
-                    style={{ animationDelay: `${index * 0.2}s` }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="flex text-primary">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 fill-current" />
-                        ))}
-                      </div>
+                {testimonials.map((t) => (
+                  <div key={t.name} className="group">
+                    <div className="flex text-primary mb-2">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-current" />
+                      ))}
                     </div>
-                    <p className="text-muted-foreground font-body text-sm leading-relaxed mb-3">
-                      "{testimonial.message}"
+                    <p className="text-muted-foreground text-sm mb-2">
+                      "{t.message}"
                     </p>
-                    <div>
-                      <p className="font-display font-bold text-foreground text-sm">
-                        {testimonial.name}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {testimonial.company}
-                      </p>
-                    </div>
+                    <p className="font-bold text-sm">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.company}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center glass-card p-12 rounded-2xl">
-          <h3 className="text-3xl font-display font-bold gradient-text mb-4">
-            Vamos Começar Nossa Jornada Juntos!
-          </h3>
-          <p className="text-lg text-muted-foreground mb-8 font-body">
-            Somos novos no mercado, mas nossa energia e paixão por tecnologia são infinitas. 
-            Que tal ser nosso próximo parceiro de sucesso?
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group">
-              Agendar Reunião
-              <Phone className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-            </Button>
-            <Button variant="futuristic" size="xl" className="group">
-              Enviar WhatsApp
-              <MessageSquare className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-            </Button>
           </div>
         </div>
       </div>

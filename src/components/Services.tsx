@@ -22,7 +22,7 @@ const Services = () => {
         "Integração com APIs",
         "Performance otimizada"
       ],
-      popular: false
+      popular: true
     },
     {
       icon: Monitor,
@@ -37,30 +37,6 @@ const Services = () => {
       popular: true
     },
     {
-      icon: Cloud,
-      title: "Soluções Cloud",
-      description: "Infraestrutura em nuvem robusta e segura para suas aplicações",
-      features: [
-        "AWS / Azure / GCP",
-        "Containers Docker",
-        "Microserviços",
-        "Auto-scaling"
-      ],
-      popular: false
-    },
-    {
-      icon: Database,
-      title: "Big Data & Analytics",
-      description: "Processamento e análise de dados para insights estratégicos",
-      features: [
-        "Data Warehousing",
-        "Real-time Analytics",
-        "Machine Learning",
-        "Dashboards interativos"
-      ],
-      popular: false
-    },
-    {
       icon: Brain,
       title: "Inteligência Artificial",
       description: "Soluções de IA personalizadas para automatizar e otimizar processos",
@@ -70,20 +46,8 @@ const Services = () => {
         "Computer Vision",
         "Chatbots inteligentes"
       ],
-      popular: true
-    },
-    {
-      icon: Shield,
-      title: "Segurança Digital",
-      description: "Proteção avançada para suas aplicações e dados empresariais",
-      features: [
-        "Auditorias de segurança",
-        "Pentesting",
-        "Compliance LGPD",
-        "Criptografia avançada"
-      ],
       popular: false
-    }
+    },
   ];
 
   return (
@@ -142,14 +106,6 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-
-              <Button 
-                variant={service.popular ? "hero" : "futuristic"} 
-                className="w-full group"
-              >
-                Saiba Mais
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
             </div>
           ))}
         </div>

@@ -44,6 +44,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
+    "emailjs-com": "^3.2.0",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
@@ -79,5 +80,18 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/d1ff9a4d-2345-4fa1-b184-4069a474637d",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurCoode/nextdev-future-vision.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurCoode/nextdev-future-vision/issues"
+  },
+  "homepage": "https://github.com/ArthurCoode/nextdev-future-vision#readme",
+  "keywords": []
 }

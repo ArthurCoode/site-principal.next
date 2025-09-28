@@ -45,11 +45,14 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="hero" size="lg" className="animate-pulse-glow">
-              Começar Projeto
-            </Button>
-          </div>
+<div className="hidden md:block">
+  <a href="#contact">
+    <Button variant="hero" size="lg" className="animate-pulse-glow">
+      Começar Projeto
+    </Button>
+  </a>
+</div>
+
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">

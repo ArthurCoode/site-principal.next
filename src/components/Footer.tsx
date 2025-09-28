@@ -7,7 +7,7 @@ import {
   MapPin,
   Github,
   Linkedin,
-  Twitter,
+  Youtube,
   Instagram,
   Heart,
   ArrowUp
@@ -23,16 +23,13 @@ const Footer = () => {
       { name: "Desenvolvimento Web", href: "#services" },
       { name: "Apps Mobile", href: "#services" },
       { name: "Inteligência Artificial", href: "#services" },
-      { name: "Soluções Cloud", href: "#services" }
     ],
     empresa: [
       { name: "Sobre Nós", href: "#about" },
-      { name: "Nossa Equipe", href: "#about" },
       { name: "Portfolio", href: "#portfolio" },
       { name: "Contato", href: "#contact" }
     ],
     recursos: [
-      { name: "Blog", href: "#" },
       { name: "Documentação", href: "#" },
       { name: "Suporte", href: "#contact" },
       { name: "FAQ", href: "#" }
@@ -40,10 +37,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" }
+    { icon: Github, href: "https://github.com/NextDev-io", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/next-dev-3b039b387/", label: "LinkedIn" },
+    { icon: Youtube, href: "https://www.youtube.com/@NextDev-io", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/nextdev.io/", label: "Instagram" }
   ];
 
   return (
@@ -76,15 +73,11 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center text-sm">
                   <Mail className="h-4 w-4 text-primary mr-3" />
-                  <span className="text-muted-foreground">contato@nextdev.com.br</span>
+                  <span className="text-muted-foreground">contact.nextdev@gmail.com</span>
                 </div>
                 <div className="flex items-center text-sm">
                   <Phone className="h-4 w-4 text-primary mr-3" />
-                  <span className="text-muted-foreground">+55 (11) 9999-9999</span>
-                </div>
-                <div className="flex items-center text-sm">
-                  <MapPin className="h-4 w-4 text-primary mr-3" />
-                  <span className="text-muted-foreground">São Paulo, SP</span>
+                  <span className="text-muted-foreground">+55 (77) 99804-1520</span>
                 </div>
               </div>
 
@@ -191,18 +184,18 @@ const Footer = () => {
         <div className="py-8 border-t border-primary/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center text-sm text-muted-foreground font-body mb-4 md:mb-0">
-              <span>© 2024 NextDev. Desenvolvido com</span>
+              <span>© 2025 NextDev. Desenvolvido com</span>
               <Heart className="h-4 w-4 text-primary mx-2 animate-pulse" />
-              <span>em São Paulo, Brasil</span>
             </div>
             
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Privacidade
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Termos
-              </a>
+<a 
+  href="/src/assets/downloads/Politica-de-Privacidade.pdf" 
+  download="Privacidade & Termos" 
+  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+>
+Privacidade & Termos
+</a>
               <Button
                 variant="ghost"
                 size="sm"
