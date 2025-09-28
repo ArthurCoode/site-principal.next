@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Sparkles, Rocket, Code2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import heroVideo from "@/assets/hero-video.mp4"; // Altere para o caminho do seu vídeo
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
@@ -22,7 +22,6 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Função para tentar reproduzir o vídeo (útil para autoplay em alguns navegadores)
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
@@ -45,12 +44,10 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-          poster="/path/to/poster-image.jpg" // Opcional: imagem de fallback
+          className="w-full h-full object-cover video-background"
+          poster="/path/to/poster-image.jpg"
         >
           <source src={heroVideo} type="video/mp4" />
-          {/* Adicione outros formatos para melhor compatibilidade */}
-          {/* <source src="/path/to/video.webm" type="video/webm" /> */}
           Seu navegador não suporta o elemento de vídeo.
         </video>
         
@@ -87,19 +84,19 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center opacity-0 animate-slide-up animate-delay-700">
-<Button variant="hero" size="xl" className="group">
-  <a href="#contact" className="flex items-center">
-    Iniciar Projeto
-    <Rocket className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-  </a>
-</Button>
+            <Button variant="hero" size="xl" className="group">
+              <a href="#contact" className="flex items-center">
+                Iniciar Projeto
+                <Rocket className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
 
-<Button variant="futuristic" size="xl" className="group">
-  <a href="#portfolio" className="flex items-center">
-    Ver Portfolio
-    <ChevronDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-  </a>
-</Button>
+            <Button variant="futuristic" size="xl" className="group">
+              <a href="#portfolio" className="flex items-center">
+                Ver Portfolio
+                <ChevronDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+              </a>
+            </Button>
           </div>
 
           {/* Stats */}
@@ -127,6 +124,31 @@ const Hero = () => {
           <ChevronDown className="h-6 w-6 text-primary animate-bounce" />
         </div>
       </div>
+
+      {/* Adicionar CSS para otimizar o vídeo em mobile */}
+      <style>{`
+        .video-background {
+          object-fit: cover;
+        }
+        
+        /* Para dispositivos móveis */
+        @media (max-width: 768px) {
+          .video-background {
+            object-position: center center;
+            min-height: 100vh;
+            min-width: 100vw;
+          }
+        }
+        
+        /* Para telas muito pequenas ou orientação portrait */
+        @media (max-width: 480px) and (orientation: portrait) {
+          .video-background {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 };
