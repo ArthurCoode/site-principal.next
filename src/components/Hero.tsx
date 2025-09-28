@@ -87,14 +87,19 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center opacity-0 animate-slide-up animate-delay-700">
-            <Button variant="hero" size="xl" className="group">
-              Iniciar Projeto
-              <Rocket className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="futuristic" size="xl" className="group">
-              Ver Portfolio
-              <ChevronDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-            </Button>
+<Button variant="hero" size="xl" className="group">
+  <a href="#contact" className="flex items-center">
+    Iniciar Projeto
+    <Rocket className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+  </a>
+</Button>
+
+<Button variant="futuristic" size="xl" className="group">
+  <a href="#portfolio" className="flex items-center">
+    Ver Portfolio
+    <ChevronDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+  </a>
+</Button>
           </div>
 
           {/* Stats */}

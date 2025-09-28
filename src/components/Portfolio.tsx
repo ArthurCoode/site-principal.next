@@ -11,7 +11,7 @@ const Portfolio = () => {
       title: "Future Forge",
       category: "desenvolvimento",
       description: "Oferecer ferramentas prontas e escaláveis para desenvolvedores",
-      image: "/src/assets/future-forge.png",
+      image: "/public/eco-smart.png",
       tech: ["Next.js", "React", "JavaScript"],
       status: "Em desenvolvimento - 75%",
       featured: true
@@ -21,7 +21,7 @@ const Portfolio = () => {
       title: "NextChat AI",
       category: "desenvolvimento",
       description: "Sistema de chat inteligente com IA para suporte ao cliente",
-      image: "/src/assets/nextchat-ai.png", // Caminho para a imagem
+      image: "/public/nextchat-ai.png", // Caminho para a imagem
       tech: ["React", "Node.js", "OpenAI", "WebSocket"],
       status: "Em desenvolvimento - 30%",
       featured: true
@@ -31,7 +31,7 @@ const Portfolio = () => {
       title: "EcoSmart Platform",
       category: "conceito",
       description: "Plataforma de gestão ambiental com IA para otimização de recursos",
-      image: "/src/assets/eco-smart.png", // Caminho para a imagem
+      image: "/public/eco-smart.png", // Caminho para a imagem
       tech: ["React", "Node.js", "TensorFlow", "MongoDB"],
       status: "Conceito validado",
       featured: false
