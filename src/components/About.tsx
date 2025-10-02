@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Brain, Cpu, Zap, Target, Users, Trophy } from "lucide-react";
+import { Brain, Cpu, Zap, Target } from "lucide-react";
 
 const About = () => {
   const features = [
@@ -30,11 +30,10 @@ const About = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold gradient-text mb-6">
             Quem Somos
           </h2>
-<p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-  Somos os criadores de um novo futuro. A NextDev conecta pessoas, ideias e tecnologia para transformar conhecimento em impacto real, construindo hoje as soluções que irão moldar o amanhã. 
-  Nascemos com a missão de revolucionar o desenvolvimento de aplicações, trazendo energia, paixão e uma visão clara para antecipar as necessidades do futuro por meio de soluções tecnológicas inovadoras.
-</p>
-
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
+            Somos os criadores de um novo futuro. A NextDev conecta pessoas, ideias e tecnologia para transformar conhecimento em impacto real, construindo hoje as soluções que irão moldar o amanhã. 
+            Nascemos com a missão de revolucionar o desenvolvimento de aplicações, trazendo energia, paixão e uma visão clara para antecipar as necessidades do futuro por meio de soluções tecnológicas inovadoras.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -45,7 +44,12 @@ const About = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="mb-6">
-                <feature.icon className="h-12 w-12 text-primary group-hover:text-primary-glow transition-colors duration-300 floating" />
+                <feature.icon 
+                  className="h-12 w-12 text-primary group-hover:text-primary-glow transition-colors duration-300"
+                  style={{
+                    animation: "float 6s ease-in-out infinite"
+                  }}
+                />
               </div>
               <h3 className="text-xl font-display font-bold text-foreground mb-4">
                 {feature.title}
@@ -62,49 +66,60 @@ const About = () => {
           <h3 className="text-3xl font-display font-bold gradient-text mb-8">
             Nossa Missão
           </h3>
-<p className="text-lg text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed mb-8">
-  Na NextDev, nossa missão é transformar ideias em soluções digitais inovadoras, unindo criatividade, tecnologia e impacto real. Queremos capacitar pessoas e empresas a evoluírem, tornando o futuro mais acessível, conectado e pronto para as oportunidades de amanhã.
-</p>
-
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed mb-8">
+            Na NextDev, nossa missão é transformar ideias em soluções digitais inovadoras, unindo criatividade, tecnologia e impacto real. Queremos capacitar pessoas e empresas a evoluírem, tornando o futuro mais acessível, conectado e pronto para as oportunidades de amanhã.
+          </p>
           
-<div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
-  <div className="group">
-    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-      2025
-    </div>
-    <div className="text-muted-foreground font-medium">O Início da Revolução</div>
-  </div>
-  <div className="group">
-    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-      ∞
-    </div>
-    <div className="text-muted-foreground font-medium">Possibilidades</div>
-  </div>
-  <div className="group">
-    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-      Impacto
-    </div>
-    <div className="text-muted-foreground font-medium">Tecnologia com Propósito</div>
-  </div>
-  <div className="group">
-    <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
-      Futuro
-    </div>
-    <div className="text-muted-foreground font-medium">Visão Transformadora</div>
-  </div>
-</div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+            <div className="group">
+              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+                2025
+              </div>
+              <div className="text-muted-foreground font-medium">O Início da Revolução</div>
+            </div>
+            <div className="group">
+              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+                ∞
+              </div>
+              <div className="text-muted-foreground font-medium">Possibilidades</div>
+            </div>
+            <div className="group">
+              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+                Impacto
+              </div>
+              <div className="text-muted-foreground font-medium">Tecnologia com Propósito</div>
+            </div>
+            <div className="group">
+              <div className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">
+                Futuro
+              </div>
+              <div className="text-muted-foreground font-medium">Visão Transformadora</div>
+            </div>
+          </div>
         </div>
 
         {/* CTA Section */}
-<div className="text-center">
-  <Button asChild variant="hero" size="xl" className="group">
-    <a href="#portfolio">
-      Conheça Nossos Desenvolvimento
-      <Target className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-    </a>
-  </Button>
-</div> 
+        <div className="text-center">
+          <Button asChild variant="hero" size="xl" className="group">
+            <a href="#portfolio">
+              Conheça Nossos Desenvolvimento
+              <Target className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+            </a>
+          </Button>
+        </div> 
       </div>
+
+      {/* Float Keyframes Inline */}
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </section>
   );
 };

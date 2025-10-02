@@ -11,7 +11,7 @@ const Portfolio = () => {
       title: "Future Forge",
       category: "desenvolvimento",
       description: "Oferecer ferramentas prontas e escaláveis para desenvolvedores",
-      image: "/eco-smart.png",
+      image: "/future-forge.png",
       tech: ["Next.js", "React", "JavaScript"],
       status: "Em desenvolvimento - 75%",
       featured: true
