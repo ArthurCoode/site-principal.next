@@ -143,7 +143,7 @@ const Giveaway = () => {
         <div className="text-center">
           <Button asChild variant="hero" size="xl" className="group">
             <a 
-              href="https://instagram.com/NextDev" 
+              href="https://instagram.com/nextdev.io" 
               target="_blank" 
               rel="noopener noreferrer"
             >
