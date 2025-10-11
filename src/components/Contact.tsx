@@ -90,7 +90,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+   <section className="py-20 relative overflow-hidden bg-[#141414]">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-display font-bold gradient-text mb-6">

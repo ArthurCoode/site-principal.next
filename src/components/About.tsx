@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden bg-[#000000]">
       {/* Background Effects */}
       <div className="absolute inset-0 particles opacity-50"></div>
       

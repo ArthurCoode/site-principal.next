@@ -51,12 +51,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-glow opacity-10 rounded-full floating"></div>
-        <div className="absolute bottom-20 left-10 w-32 h-32 border border-primary/20 rounded-full pulse-glow"></div>
-      </div>
+    <section id="services" className="py-20 relative overflow-hidden bg-[#0a0a0a]">
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">

@@ -49,7 +49,7 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 relative overflow-hidden">
+    <section id="portfolio"  className="py-20 relative overflow-hidden bg-[#0f0f0f]">
       {/* Background Effects */}
       <div className="absolute inset-0 particles opacity-30"></div>
       

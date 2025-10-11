@@ -44,14 +44,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden border-t border-primary/20">
+    <footer className="pt-16 pb-8 relative overflow-hidden bg-[#191919]">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-primary"></div>
       <div className="absolute inset-0 particles opacity-20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-16">
+        <div className="pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Company Info */}
             <div className="lg:col-span-1 space-y-6">
@@ -98,75 +98,40 @@ const Footer = () => {
 
             {/* Links Sections */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-lg font-display font-bold gradient-text mb-6">
-                  Serviços
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.servicos.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 font-body"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-display font-bold gradient-text mb-6">
-                  Empresa
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.empresa.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 font-body"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-display font-bold gradient-text mb-6">
-                  Recursos
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.recursos.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 font-body"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {Object.entries(footerLinks).map(([title, links]) => (
+                <div key={title}>
+                  <h3 className="text-lg font-display font-bold gradient-text mb-5 capitalize">
+                    {title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {links.map((link) => (
+                      <li key={link.name}>
+                        <a
+                          href={link.href}
+                          className="text-muted-foreground hover:text-primary transition-colors duration-300 font-body"
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Newsletter Section */}
-        <div className="py-8 border-t border-primary/20">
-          <div className="glass-card p-8 rounded-2xl text-center">
-            <h3 className="text-2xl font-display font-bold gradient-text mb-4">
+        <div className="py-6 border-t border-primary/20">
+          <div className="glass-card p-6 rounded-2xl text-center">
+            <h3 className="text-2xl font-display font-bold gradient-text mb-3">
               Fique por Dentro das Novidades
             </h3>
-            <p className="text-muted-foreground font-body mb-6 max-w-2xl mx-auto">
-              Acompanhe nossa jornada desde o primeiro dia! Receba atualizações sobre 
-              nosso crescimento, insights sobre tecnologia e as novidades da NextDev 
-              diretamente em sua caixa de entrada.
+            <p className="text-muted-foreground font-body mb-5 max-w-2xl mx-auto">
+              Receba atualizações sobre nosso crescimento, insights de tecnologia 
+              e as novidades da NextDev diretamente em sua caixa de entrada.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Seu melhor email"
@@ -181,7 +146,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-8 border-t border-primary/20">
+        <div className="pt-6 border-t border-primary/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center text-sm text-muted-foreground font-body mb-4 md:mb-0">
               <span>© 2025 NextDev. Desenvolvido com</span>
@@ -189,13 +154,13 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-6">
-<a 
-  href="/Politica-de-Privacidade.pdf" 
-  download="Privacidade & Termos" 
-  className="text-sm text-muted-foreground hover:text-primary transition-colors"
->
-Privacidade & Termos
-</a>
+              <a 
+                href="/Politica-de-Privacidade.pdf" 
+                download="Privacidade & Termos" 
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                Privacidade & Termos
+              </a>
               <Button
                 variant="ghost"
                 size="sm"
@@ -213,10 +178,10 @@ Privacidade & Termos
       {/* Floating Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center shadow-glow hover:scale-110 transition-all duration-300 z-50 group"
+        className="fixed bottom-6 right-6 w-11 h-11 bg-gradient-gold rounded-full flex items-center justify-center shadow-glow hover:scale-110 transition-all duration-300 z-50 group"
         aria-label="Voltar ao topo"
       >
-        <ArrowUp className="h-6 w-6 text-background group-hover:-translate-y-1 transition-transform duration-300" />
+        <ArrowUp className="h-5 w-5 text-background group-hover:-translate-y-1 transition-transform duration-300" />
       </button>
     </footer>
   );
